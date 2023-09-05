@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TopDownMovement : MonoBehaviour
 {
+    [SerializeField] private int speed = 4;
+
     private TopDownCharacterController _controller;
 
     private Vector2 _movementDirection = Vector2.zero;
@@ -32,7 +34,7 @@ public class TopDownMovement : MonoBehaviour
 
     private void ApplyMovement(Vector2 direction)
     {
-        direction *= 3;
+        direction *= speed;
         _rigidbody.velocity = direction;
     }
 }
