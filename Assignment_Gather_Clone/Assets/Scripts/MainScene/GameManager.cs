@@ -22,8 +22,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        attendeeList = GameObject.FindGameObjectsWithTag("attendee");
-
         LoadAttendeeList();
     }
 

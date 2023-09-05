@@ -14,6 +14,13 @@ public class Player : MonoBehaviour
     public Sprite characterSprite1;
     public Sprite characterSprite2;
 
+    private void Awake()
+    {
+        playerNameText.text = PlayerPrefs.GetString(PLAYER_NAME);
+        if (PlayerPrefs.GetInt(PLAYER_CHARACTER) == 1) playerCharacter.GetComponent<SpriteRenderer>().sprite = characterSprite1;
+        else playerCharacter.GetComponent<SpriteRenderer>().sprite = characterSprite2;
+    }
+
     public void SetPlayerName(string name)
     {
         playerNameText.text = name;
