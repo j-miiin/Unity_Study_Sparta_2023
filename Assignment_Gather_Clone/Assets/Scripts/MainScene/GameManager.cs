@@ -8,27 +8,37 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager I;
 
-    public const string PLAYER_NAME = "PlayerName";
-    public const string PLAYER_CHARACTER = "PlayerCharacter";
+    // 참가자 이름 리스트 컨테이너
+    public Transform contentContainer;
+    public GameObject attendeeNameContainer;
 
-    public TMP_Text playerNameText;
-    public GameObject playerCharacter;
-    public Sprite characterSprite1;
-    public Sprite characterSprite2;
+    // 참가자 리스트
+    private GameObject[] attendeeList;
 
     private void Awake()
     {
         I = this;
     }
+
     void Start()
     {
-        playerNameText.text = PlayerPrefs.GetString(PLAYER_NAME);
-        if (PlayerPrefs.GetInt(PLAYER_CHARACTER) == 1) playerCharacter.GetComponent<SpriteRenderer>().sprite = characterSprite1;
-        else playerCharacter.GetComponent<SpriteRenderer>().sprite = characterSprite2;
+        attendeeList = GameObject.FindGameObjectsWithTag("attendee");
+
+        LoadAttendeeList();
     }
 
     void Update()
     {
         
+    }
+
+    private void LoadAttendeeList()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject playerName = Instantiate(attendeeNameContainer);
+            playerName.GetComponent<TMP_Text>().text = i + "번째";
+            playerName.transform.SetParent(contentContainer);
+        }
     }
 }

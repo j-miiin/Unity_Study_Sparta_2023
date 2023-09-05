@@ -12,7 +12,7 @@ public class PlayerCharacter : MonoBehaviour
 
     void Update()
     {
-         if (!PlayerPrefs.HasKey(GameManager.PLAYER_CHARACTER) || PlayerPrefs.GetInt(GameManager.PLAYER_CHARACTER) == 1)
+         if (!PlayerPrefs.HasKey(Player.PLAYER_CHARACTER) || PlayerPrefs.GetInt(Player.PLAYER_CHARACTER) == 1)
         {
             playerCharacterImage.sprite = characterSprite1;
         } else
@@ -28,13 +28,13 @@ public class PlayerCharacter : MonoBehaviour
 
     public void SelectCharacter1()
     {
-        PlayerPrefs.SetInt(GameManager.PLAYER_CHARACTER, 1);
+        PlayerPrefs.SetInt(Player.PLAYER_CHARACTER, 1);
         playerSelectPanel.SetActive(false);
     }
 
     public void SelectCharacter2()
     {
-        PlayerPrefs.SetInt(GameManager.PLAYER_CHARACTER, 2);
+        PlayerPrefs.SetInt(Player.PLAYER_CHARACTER, 2);
         playerSelectPanel.SetActive(false);
     }
 }

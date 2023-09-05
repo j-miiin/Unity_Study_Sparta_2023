@@ -28,7 +28,7 @@ public class GetPlayerName : MonoBehaviour
         playerName = playerNameInputField.text;
         if (playerName.Length > 0)
         {
-            PlayerPrefs.SetString(GameManager.PLAYER_NAME, playerName);
+            PlayerPrefs.SetString(Player.PLAYER_NAME, playerName);
             SceneManager.LoadScene("MainScene");
         }
     }
