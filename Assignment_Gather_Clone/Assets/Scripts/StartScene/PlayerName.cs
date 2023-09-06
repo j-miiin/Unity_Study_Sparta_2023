@@ -9,6 +9,6 @@ public class PlayerName : MonoBehaviour
 
     void Update()
     {
-        transform.position = Camera.main.WorldToScreenPoint(player.transform.position + new Vector3(0, 1f, 0));
+        //transform.position = Camera.main.WorldToScreenPoint(player.transform.position + new Vector3(0, 1f, 0));
     }
 }
