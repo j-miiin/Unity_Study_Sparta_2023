@@ -13,28 +13,21 @@ public class TopDownMovement : MonoBehaviour
     private Vector2 _movementDirection = Vector2.zero;
     private Rigidbody2D _rigidbody;
 
+    private Animator _animator;
+
     private void Awake()
     {
         _controller = GetComponent<TopDownCharacterController>();
         _moveAction = GetComponent<PlayerInput>().actions.FindAction("Move");
-        _rigidbody = GetComponent<Rigidbody2D>(); 
+        _rigidbody = GetComponent<Rigidbody2D>();
+        _animator = transform.GetChild(0).GetComponent<Animator>();
     }
 
     void Start()
     {
         _controller.OnMoveEvent += Move;
-        _moveAction.started += context =>
-        {
-            Animator animator = transform.GetChild(0).GetComponent<Animator>();
-            animator.SetBool("isWalking", true);
-            Debug.Log(animator.GetBool("isWalking"));
-        };
-        _moveAction.canceled += context =>
-        {
-            Animator animator = transform.GetChild(0).GetComponent<Animator>();
-            animator.SetBool("isWalking", false);
-            
-        };
+        _moveAction.started += context => { _animator.SetBool("isWalking", true); };
+        _moveAction.canceled += context => { _animator.SetBool("isWalking", false); };
     }
 
     private void FixedUpdate()
