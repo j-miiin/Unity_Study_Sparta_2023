@@ -8,13 +8,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager I;
 
-    // 참가자 이름 리스트 컨테이너
-    public Transform contentContainer;
-    public GameObject attendeeNameContainer;
-
-    // 참가자 리스트
-    private GameObject[] attendeeList;
-
     private void Awake()
     {
         I = this;
@@ -32,11 +25,14 @@ public class GameManager : MonoBehaviour
 
     private void LoadAttendeeList()
     {
-        for (int i = 0; i < 3; i++)
+        GameObject npcController = GameObject.Find("NpcController");
+        GameObject[] npcList = Resources.LoadAll<GameObject>("Prefabs/Npc");
+        foreach (GameObject npc in npcList)
         {
-            GameObject playerName = Instantiate(attendeeNameContainer);
-            playerName.GetComponent<TMP_Text>().text = i + "번째";
-            playerName.transform.SetParent(contentContainer);
+            GameObject curNpc = Instantiate(npc);
+            curNpc.transform.SetParent(npcController.transform);
         }
+
+        UIManager.U.SetAttendeeList();
     }
 }
