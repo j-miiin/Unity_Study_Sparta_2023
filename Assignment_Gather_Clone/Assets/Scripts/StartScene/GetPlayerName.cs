@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GetPlayerName : MonoBehaviour
 {
-    public TMP_InputField playerNameInputField;
-    private string playerName = null;
+    const string PLAYER_NAME_INPUT_FIELD = "PlayerNameInputField";
 
+    private InputField playerNameInputField;
+    private string playerName = null;
 
     private void Awake()
     {
-        playerName = playerNameInputField.GetComponent<TMP_InputField>().text;
+        playerNameInputField = GameObject.Find(PLAYER_NAME_INPUT_FIELD).transform.GetComponent<InputField>();
+        playerName = playerNameInputField.GetComponent<InputField>().text;
     }
 
     void Update()

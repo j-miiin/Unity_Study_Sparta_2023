@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
     private Text playerNameText;
 
     // 참가자 이름 리스트 컨테이너
-    private Transform contentContainer;
+    [SerializeField] private GameObject contentContainer;
 
     // Panel
     private GameObject attendeeListPanel;
@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
 
     // Bottom Bar
     private Button attendeeListBtn;
+    private Button closeAttendeeListBtn;
     private Button openPlayerCharacterPanelBtn;
     private Button openUpdatePlayerNamePanelBtn;
     private Button updatePlayerNameBtn;
@@ -50,6 +51,7 @@ public class UIManager : MonoBehaviour
     const string UPDATE_PLAYER_NAME_PANEL = "UpdatePlayerNamePanel";
     const string PLAYER_NAME_INPUT_FIELD = "PlayerNameInputField";
     const string ATTENDEE_LIST_BTN = "BottomBar/AttendeeListBtn";
+    const string CLOSE_ATTENDEE_LIST_BTN = "AttendeeListPanel/AttendeeListCloseBtn";
     const string OPEN_PLAYER_CHARACTER_PANEL_BTN = "BottomBar/OpenPlayerCharacterPanelBtn";
     const string OPEN_UPDATE_PLAYER_NAME_PANEL_BTN = "BottomBar/OpenUpdatePlayerNamePanelBtn";
     const string UPDATE_PLAYER_NAME_BTN = "UpdatePlayerNameBtn";
@@ -96,7 +98,7 @@ public class UIManager : MonoBehaviour
         playerNameText.text = playerObject.GetComponent<Player>().Name;
 
         // 참가자 이름 리스트 컨테이너
-        contentContainer = canvas.transform.Find(ATTENDEE_TEXT_CONTAINER).transform;
+        contentContainer = canvas.transform.Find(ATTENDEE_TEXT_CONTAINER).gameObject;
 
         // Panel
         attendeeListPanel = canvas.transform.Find(ATTENDEE_LIST_PANEL).gameObject;
@@ -106,6 +108,7 @@ public class UIManager : MonoBehaviour
 
         // Bottom Bar
         attendeeListBtn = canvas.transform.Find(ATTENDEE_LIST_BTN).GetComponent<Button>();
+        closeAttendeeListBtn = canvas.transform.Find(CLOSE_ATTENDEE_LIST_BTN).GetComponent<Button>();
         openPlayerCharacterPanelBtn = canvas.transform.Find(OPEN_PLAYER_CHARACTER_PANEL_BTN).GetComponent<Button>();
         openUpdatePlayerNamePanelBtn = canvas.transform.Find(OPEN_UPDATE_PLAYER_NAME_PANEL_BTN).GetComponent<Button>();
         updatePlayerNameBtn = canvas.transform.Find($"{UPDATE_PLAYER_NAME_PANEL}/{UPDATE_PLAYER_NAME_BTN}").GetComponent<Button>();
@@ -130,6 +133,7 @@ public class UIManager : MonoBehaviour
     private void AddListener()
     {
         attendeeListBtn.onClick.AddListener(OpenAttendeeList);
+        closeAttendeeListBtn.onClick.AddListener(CloseAttendeeList);
         openPlayerCharacterPanelBtn.onClick.AddListener(OpenPlayerCharacterPanel);
         openUpdatePlayerNamePanelBtn.onClick.AddListener(OpenUpdatePlayerNamePanel);
         updatePlayerNameBtn.onClick.AddListener(UpdatePlayerName);
@@ -143,8 +147,8 @@ public class UIManager : MonoBehaviour
     {
         // 최상단에 플레이어 닉네임
         GameObject playerName = Instantiate(Resources.Load<GameObject>("Prefabs/AttendeeName"));
-        playerName.GetComponent<Text>().text = PlayerPrefs.GetString(Player.PLAYER_NAME);
-        playerName.transform.SetParent(contentContainer);
+        playerName.GetComponent<Text>().text = playerObject.GetComponent<Player>().Name;
+        playerName.transform.SetParent(contentContainer.transform);
 
         // Npc 닉네임
         GameObject npcController = GameObject.Find("NpcController");
@@ -154,7 +158,7 @@ public class UIManager : MonoBehaviour
         {
             GameObject npcName = Instantiate(Resources.Load<GameObject>("Prefabs/AttendeeName"));
             npcName.GetComponent<Text>().text = npcController.transform.GetChild(i).GetComponent<Npc>().Name;
-            npcName.transform.SetParent(contentContainer);
+            npcName.transform.SetParent(contentContainer.transform);
         }
     }
 
