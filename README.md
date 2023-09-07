@@ -33,8 +33,8 @@
   ![MyScreenShot_0907_102447](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/cac00ac5-2dae-4f46-8fef-4f5079d53d4d)
   ![MyScreenShot_0907_102505](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/d10bfe5e-e11d-4710-865d-6293be1f8b6e)
   ![MyScreenShot_0907_102508](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/f5e168fd-5ef3-4d7c-93aa-1780ee508508)
-  - 카메라 기능
-  <img width="216" alt="screenshots_folder" src="https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/cc6f932c-8f8a-401a-a570-9e83e5e2bb84">
+  - 카메라 기능 <br>
+    ![screenshots_folder](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/cc6f932c-8f8a-401a-a570-9e83e5e2bb84)
 
 <br>
 
@@ -78,7 +78,9 @@
 ### 더 구현하고 싶은 기능 및 코드 리팩토링
 [🌳 목차로 돌아가기 🌳](#목차)
 - 닉네임 입력 및 NPC 대화시 캐릭터 이동 제한
+- 캐릭터 이동 (앞, 뒤) 애니메이션 추가
 - INPC 인터페이스를 IInteractable 같은 행동과 관련된 인터페이스로 변경
+- 카메라 촬영 기능 이펙트 추가
 - Map UI 추가 -> 집 모양 타일로 NPC 구역 꾸미기
 - 미니맵 기능 추가
 - NPC 대화 또는 퀘스트 추가
