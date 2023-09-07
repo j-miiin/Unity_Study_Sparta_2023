@@ -62,7 +62,7 @@
 | Script | 기능 |
 | :---: | :---: |
 | CameraManager | [플레이어를 따라 카메라 이동](https://github.com/j-miiin/Unity_Study_Sparta_2023/blob/3699bedab8d59c69838117944da01a65f7b4caa7/Assignment_Gather_Clone/Assets/Scripts/MainScene/CameraManager.cs#L17-L28) |
-| UIManager  | [참석 인원 보여주기](https://github.com/j-miiin/Unity_Study_Sparta_2023/blob/3699bedab8d59c69838117944da01a65f7b4caa7/Assignment_Gather_Clone/Assets/Scripts/MainScene/UIManager.cs#L146-L163) |
+| UIManager  | [참석 인원 보여주기](https://github.com/j-miiin/Unity_Study_Sparta_2023/blob/09685b7ee5458994f5ff0ca0bf75a78a6d2b28cc/Assignment_Gather_Clone/Assets/Scripts/MainScene/UIManager.cs#L147-L170) |
 | GameManager | [참석 인원 보여주기 - GameManager - NPC 오브젝트 생성](https://github.com/j-miiin/Unity_Study_Sparta_2023/blob/3699bedab8d59c69838117944da01a65f7b4caa7/Assignment_Gather_Clone/Assets/Scripts/MainScene/GameManager.cs#L26-L38) |
 | UIManager | [인게임에서 닉네임 변경하기](https://github.com/j-miiin/Unity_Study_Sparta_2023/blob/3699bedab8d59c69838117944da01a65f7b4caa7/Assignment_Gather_Clone/Assets/Scripts/MainScene/UIManager.cs#L185-L195) |
 | | [플레이어 캐릭터 위에 닉네임 보여주기](https://github.com/j-miiin/Unity_Study_Sparta_2023/blob/3699bedab8d59c69838117944da01a65f7b4caa7/Assignment_Gather_Clone/Assets/Scripts/MainScene/UIManager.cs#L90) |
