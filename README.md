@@ -25,8 +25,16 @@
   ![mainscene_맵_ui](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/bff8288d-424f-4352-a8f6-e5e05a719e1a)
   - 캐릭터 애니메이션
   ![mainscene_캐릭터_애니메이션_1](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/d9f65b40-3328-4e17-864f-003687aa5f63)
+  ![mainscene_캐릭터_애니메이션_2](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/3a30d0e3-9acc-40e8-a468-79363134c2f5)
   - 인게임 닉네임, 캐릭터 선택
   ![mainscene_인게임_닉네임_캐릭터_변경](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/1e6dc145-b64f-4acc-9425-2c119ce3dbb7)
+  - NPC 대화
+  ![MyScreenShot_0907_102444](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/5e0561f1-fa7d-481b-9e97-14d5d9bfe903)
+  ![MyScreenShot_0907_102447](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/cac00ac5-2dae-4f46-8fef-4f5079d53d4d)
+  ![MyScreenShot_0907_102505](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/d10bfe5e-e11d-4710-865d-6293be1f8b6e)
+  ![MyScreenShot_0907_102508](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/f5e168fd-5ef3-4d7c-93aa-1780ee508508)
+  - 카메라 기능
+  <img width="216" alt="screenshots_folder" src="https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/cc6f932c-8f8a-401a-a570-9e83e5e2bb84">
 
 <br>
 
@@ -69,6 +77,7 @@
 ## DEVELOP
 ### 더 구현하고 싶은 기능 및 코드 리팩토링
 [🌳 목차로 돌아가기 🌳](#목차)
+- 닉네임 입력 및 NPC 대화시 캐릭터 이동 제한
 - INPC 인터페이스를 IInteractable 같은 행동과 관련된 인터페이스로 변경
 - Map UI 추가 -> 집 모양 타일로 NPC 구역 꾸미기
 - 미니맵 기능 추가

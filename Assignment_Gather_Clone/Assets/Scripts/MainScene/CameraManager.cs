@@ -33,7 +33,7 @@ public class CameraManager : MonoBehaviour
         Camera.main.orthographicSize = 10f;
 
         Texture2D screenTex = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
-        Rect area = new Rect(150, 0f, Screen.width, Screen.height);
+        Rect area = new Rect(0, 0f, Screen.width, Screen.height);
         screenTex.ReadPixels(area, 0, 0);
 
         try
