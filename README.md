@@ -26,6 +26,8 @@
   - 캐릭터 애니메이션
   ![mainscene_캐릭터_애니메이션_1](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/d9f65b40-3328-4e17-864f-003687aa5f63)
   ![mainscene_캐릭터_애니메이션_2](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/3a30d0e3-9acc-40e8-a468-79363134c2f5)
+  - 참석 인원 보여주기
+  ![mainscene_참석자_리스트](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/30d38d4a-1a2f-4ed4-9717-6c15929c3825)
   - 인게임 닉네임, 캐릭터 선택
   ![mainscene_인게임_닉네임_캐릭터_변경](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/1e6dc145-b64f-4acc-9425-2c119ce3dbb7)
   - NPC 대화
