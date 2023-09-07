@@ -22,7 +22,7 @@
 
 - Main Scene
   - 맵 UI - 애니메이션 타일 사용
-  ![mainscene_맵_ui](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/bff8288d-424f-4352-a8f6-e5e05a719e1a)
+  ![mainscene_맵_ui](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/4a4fbcd7-eaeb-4f72-8554-40f677af4249)
   - 캐릭터 애니메이션
   ![mainscene_캐릭터_애니메이션_1](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/d9f65b40-3328-4e17-864f-003687aa5f63)
   ![mainscene_캐릭터_애니메이션_2](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/3a30d0e3-9acc-40e8-a468-79363134c2f5)
