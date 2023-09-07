@@ -68,6 +68,7 @@ public class UIManager : MonoBehaviour
 
     private GameObject playerObject;
     private GameObject canvas;
+    private GameObject playerName;
 
     public static UIManager U;
 
@@ -146,7 +147,7 @@ public class UIManager : MonoBehaviour
     public void SetAttendeeList()
     {
         // 최상단에 플레이어 닉네임
-        GameObject playerName = Instantiate(Resources.Load<GameObject>("Prefabs/AttendeeName"));
+        playerName = Instantiate(Resources.Load<GameObject>("Prefabs/AttendeeName"));
         playerName.GetComponent<Text>().text = playerObject.GetComponent<Player>().Name;
         playerName.transform.SetParent(contentContainer.transform);
 
@@ -164,6 +165,7 @@ public class UIManager : MonoBehaviour
 
     public void OpenAttendeeList()
     {
+        playerName.GetComponent<Text>().text = playerObject.GetComponent<Player>().Name;
         attendeeListPanel.SetActive(true);
     }
 
