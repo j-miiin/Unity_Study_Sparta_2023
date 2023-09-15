@@ -26,8 +26,21 @@ public class TopDownMovement : MonoBehaviour
     void Start()
     {
         _controller.OnMoveEvent += Move;
-        _moveAction.started += context => { _animator.SetBool("isWalking", true); };
-        _moveAction.canceled += context => { _animator.SetBool("isWalking", false); };
+        _moveAction.started += context => { Debug.Log(_animator.GetInteger("isWalking")); };
+        _moveAction.performed += context =>
+        {
+            if (Input.GetKey(KeyCode.S))
+            {
+                _animator.SetInteger("isWalking", 2);
+            } else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            {
+                _animator.SetInteger("isWalking", 1);
+            } else if (Input.GetKey(KeyCode.W))
+            {
+                _animator.SetInteger("isWalking", 3);
+            }
+        };
+        _moveAction.canceled += context => { _animator.SetInteger("isWalking", 0); };
     }
 
     private void FixedUpdate()
