@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 224769142}
   - component: {fileID: 224769143}
   - component: {fileID: 224769144}
+  - component: {fileID: 224769145}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -335,6 +336,18 @@ MonoBehaviour:
     speed: 2.5
     attackSO: {fileID: 11400000, guid: 6903f693ebe1b174084587af9b18cc2e, type: 2}
   statsModifiers: []
+--- !u!114 &224769145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224769134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 291d79cde3f220a44af9010345908010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &313455369
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,6 +826,7 @@ GameObject:
   m_Component:
   - component: {fileID: 327060021}
   - component: {fileID: 327060022}
+  - component: {fileID: 327060023}
   m_Layer: 8
   m_Name: MainSprite
   m_TagString: Untagged
@@ -888,6 +902,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &327060023
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327060020}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4c144fc9c266424499717bb9a45f816e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &334368650
 GameObject:
   m_ObjectHideFlags: 0
@@ -1812,6 +1847,7 @@ GameObject:
   m_Component:
   - component: {fileID: 708994651}
   - component: {fileID: 708994652}
+  - component: {fileID: 708994653}
   m_Layer: 0
   m_Name: ProjectileManager
   m_TagString: Untagged
@@ -1847,7 +1883,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _impactParticleSystem: {fileID: 0}
-  testObj: {fileID: 6677429310899008291, guid: e6a68516d5291d84fbed3dc685ce8ef3, type: 3}
+--- !u!114 &708994653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708994650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c4acb73114f0af4b83db7c6d37e3e40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: Arrow
+    prefab: {fileID: 6677429310899008291, guid: e6a68516d5291d84fbed3dc685ce8ef3, type: 3}
+    size: 20
 --- !u!1 &1111070910
 GameObject:
   m_ObjectHideFlags: 0
