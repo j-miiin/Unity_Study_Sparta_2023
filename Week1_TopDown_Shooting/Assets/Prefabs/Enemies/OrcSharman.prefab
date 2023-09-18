@@ -48,6 +48,8 @@ GameObject:
   - component: {fileID: 6377039517202848326}
   - component: {fileID: 1368839595098918651}
   - component: {fileID: 3729845293336485185}
+  - component: {fileID: 3916819818235939383}
+  - component: {fileID: 4002367370356897312}
   m_Layer: 0
   m_Name: OrcSharman
   m_TagString: Untagged
@@ -70,7 +72,7 @@ Transform:
   - {fileID: 7866732831886789303}
   - {fileID: 3964407529497456132}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &9061537356657843565
 BoxCollider2D:
@@ -226,6 +228,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0154e0be7bd9d044adc390c67ff0cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3916819818235939383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8013303303489681170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db881819b13f3ec40b1f90b930f18250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthChangeDelay: 0.5
+--- !u!114 &4002367370356897312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8013303303489681170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66ca2bc19812fde4c9d01d2afaa378da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8052673099679160629

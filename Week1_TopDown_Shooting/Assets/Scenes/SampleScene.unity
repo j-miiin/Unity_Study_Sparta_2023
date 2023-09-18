@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 224769143}
   - component: {fileID: 224769144}
   - component: {fileID: 224769145}
+  - component: {fileID: 224769146}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -348,6 +349,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291d79cde3f220a44af9010345908010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &224769146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224769134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db881819b13f3ec40b1f90b930f18250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthChangeDelay: 0.5
 --- !u!1 &313455369
 GameObject:
   m_ObjectHideFlags: 0
@@ -3904,6 +3918,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goblin
       objectReference: {fileID: 0}
+    - target: {fileID: 6048071623734619171, guid: c56ab4248885677488fd41715f390cc2, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045075002387291297, guid: c56ab4248885677488fd41715f390cc2, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3917,6 +3939,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2303934877878425697, guid: a60c27b2a07572f43bcb26e650c0175e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5623268011808404967, guid: a60c27b2a07572f43bcb26e650c0175e, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -3964,6 +3990,22 @@ PrefabInstance:
     - target: {fileID: 8013303303489681170, guid: a60c27b2a07572f43bcb26e650c0175e, type: 3}
       propertyPath: m_Name
       value: OrcSharman
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013303303489681170, guid: a60c27b2a07572f43bcb26e650c0175e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052673099679160629, guid: a60c27b2a07572f43bcb26e650c0175e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8275121190365694923, guid: a60c27b2a07572f43bcb26e650c0175e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8861720752383258256, guid: a60c27b2a07572f43bcb26e650c0175e, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
