@@ -15612,7 +15612,22 @@ MonoBehaviour:
   - {fileID: 6048071623734619171, guid: c56ab4248885677488fd41715f390cc2, type: 3}
   - {fileID: 8013303303489681170, guid: a60c27b2a07572f43bcb26e650c0175e, type: 3}
   spawnPositionsRoot: {fileID: 1643691786}
-  rewards: []
+  rewards:
+  - {fileID: 1312165898760247421, guid: 7cc4cf2574acb674d879e6b9cb5ef8ce, type: 3}
+  - {fileID: 2962903363150712245, guid: 68c220453940e7f4691191e66dfa963c, type: 3}
+  - {fileID: 4539932014028561185, guid: dc1f798b40506314f81e617cfd5b99c8, type: 3}
+  - {fileID: 1312165898760247421, guid: 7cc4cf2574acb674d879e6b9cb5ef8ce, type: 3}
+  - {fileID: 1312165898760247421, guid: 7cc4cf2574acb674d879e6b9cb5ef8ce, type: 3}
+  defaultStats:
+    statsChangeType: 0
+    maxHealth: 0
+    speed: 0
+    attackSO: {fileID: 11400000, guid: 60bdecb278d8b6440875caa3a97390a8, type: 2}
+  rangedStats:
+    statsChangeType: 0
+    maxHealth: 0
+    speed: 0
+    attackSO: {fileID: 11400000, guid: 3a1bbe2c277f8944f94696bec32d69bf, type: 2}
 --- !u!1 &2060157796
 GameObject:
   m_ObjectHideFlags: 0

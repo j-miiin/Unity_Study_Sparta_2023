@@ -59,7 +59,7 @@ public class CharacterStatsHandler : MonoBehaviour
             else if (modifier.statsChangeType == StatsChangeType.Add)
             {
                 UpdateStats((o, o1) => o + o1, modifier);
-            } else if (modifier.statsChangeType == StatsChangeType.Mutiple)
+            } else if (modifier.statsChangeType == StatsChangeType.Multiple)
             {
                 UpdateStats((o, o1) => o * o1, modifier);
             }
@@ -72,6 +72,8 @@ public class CharacterStatsHandler : MonoBehaviour
     {
         CurrentStats.maxHealth = (int)operation(CurrentStats.maxHealth, newModifier.maxHealth);
         CurrentStats.speed = operation(CurrentStats.speed, newModifier.speed);
+
+        if (CurrentStats.attackSO == null || newModifier.attackSO == null) return;
 
         UpdateAttackStats(operation, CurrentStats.attackSO, newModifier.attackSO);
 
@@ -129,7 +131,7 @@ public class CharacterStatsHandler : MonoBehaviour
 
     private void LimitStats(ref float stat, float minVal)
     {
-        stat = Mathf.Min(stat, minVal);
+        stat = Mathf.Max(stat, minVal);
     }
 
     private void LimitAllStats()

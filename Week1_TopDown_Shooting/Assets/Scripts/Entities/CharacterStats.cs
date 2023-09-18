@@ -6,7 +6,7 @@ using UnityEngine;
 public enum StatsChangeType
 {
     Add,
-    Mutiple,
+    Multiple,
     Override,
 }
 
