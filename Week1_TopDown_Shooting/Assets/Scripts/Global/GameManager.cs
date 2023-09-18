@@ -27,7 +27,9 @@ public class GameManager : MonoBehaviour
     public List<GameObject> enemyPrefabs = new List<GameObject>();
 
     [SerializeField] private Transform spawnPositionsRoot;
-    public List<Transform> spawnPositions = new List<Transform>();
+    private List<Transform> spawnPositions = new List<Transform>();
+
+    public List<GameObject> rewards = new List<GameObject>();
 
     private void Awake()
     {
@@ -70,7 +72,7 @@ public class GameManager : MonoBehaviour
 
                 if (currentWaveIndex % 5 == 0)
                 {
-
+                    CreateReward();
                 }
 
                 if (currentWaveIndex % 3 == 0)
@@ -126,5 +128,14 @@ public class GameManager : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    void CreateReward()
+    {
+        int idx = Random.Range(0, rewards.Count);
+        int posIdx = Random.Range(0, spawnPositions.Count);
+
+        GameObject obj = rewards[idx];
+        Instantiate(obj, spawnPositions[posIdx].position, Quaternion.identity);
     }
 }
