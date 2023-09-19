@@ -11,7 +11,7 @@ public class UIPlayerInfo : GameUIClass
     [SerializeField] private TMP_Text _playerGoldText;
     //[SerializeField] private Image _playerCharacterImage;
 
-    public void SetPlayerInfo(Player player)
+    public void SetPlayerInfo(PlayerDTO player)
     {
         _playerNameText.text = player.Name;
         _playerLevelText.text = player.Level.ToString();

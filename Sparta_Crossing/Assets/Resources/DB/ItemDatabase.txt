@@ -1,0 +1,6 @@
+초코쿠키	HEALTH	서브웨이 쿠키보다 맛있다	cookie_stroke	FALSE
+막대사탕	ATTACK	잘못 깨물면 이가 깨진다	lollipop_stroke	FALSE
+구미베어	SHIELD	말랑한 곰돌이가 충격을 흡수한다	gummy-bear_stroke	FALSE
+밀크쉐이크	HEALTH	흰 우유와 믹서기만 있다면 어디든 갈 수 있어	milkshake_stroke	FALSE
+츄잉껌	ATTACK	씹으신 껌은 종이에 싸서 휴지통에 넣어주세요	chewing-gum_stroke	FALSE
+도넛	SHIELD	도넛 튜브로 사회적 거리두기 하세요	donnut_stroke	FALSE

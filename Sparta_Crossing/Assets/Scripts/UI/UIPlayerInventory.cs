@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,14 +13,14 @@ public class UIPlayerInventory : GameUIClass
         _closeInventoryButton.onClick.AddListener(CloseUI);
     }
 
-    public void SetInventoryUI(Inventory inventory)
+    public void SetInventoryUI(InventoryDTO inventory)
     {
-        foreach (Item item in inventory.ItemList)
+        foreach (ItemDTO item in inventory.ItemList)
         {
-            var obj = Instantiate(Resources.Load("Prefabs/InventoryItemContainer"));
-            ((GameObject)obj).transform.SetParent(_contentContainer.transform);
-            Image itemImage = obj.GetComponentInChildren<Image>();
-            itemImage.sprite = Resources.Load($"Images/{item.Image}").GetComponent<Image>().sprite;
+            GameObject obj = Instantiate(Resources.Load<GameObject>("Prefabs/InventoryItemContainer"));
+            Image itemImage = obj.transform.GetChild(0).GetComponent<Image>();
+            itemImage.sprite = Resources.Load<Sprite>($"Images/{item.Image}");
+            obj.transform.SetParent(_contentContainer.transform);
         }
     }
 }
