@@ -14,16 +14,8 @@ public class UIMenuButton : GameUIClass
     void Start()
     {
         _controller = UIManager.Instance.controller;
-        _controller.OnOpenPlayerInventoryEvent += CloseUI;
         _controller.OnClosePlayerInventoryEvent += OpenUI;
         _playerStatusButton.onClick.AddListener(_controller.CallOpenPlayerStatusEvent);
         _playerInventoryButton.onClick.AddListener(_controller.CallOpenPlayerInventoryEvent);
-    }
-
-    // 플레이어 인벤토리 열기
-    private void OpenPlayerInventory()
-    {
-        GameUIClass uiPlayerInventory = UIManager.Instance.GetUIComponent<UIPlayerInventory>();
-        uiPlayerInventory.OpenUI();
     }
 }

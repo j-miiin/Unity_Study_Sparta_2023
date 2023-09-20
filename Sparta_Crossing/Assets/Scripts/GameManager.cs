@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     // 사용할 UI 컴포넌트들을 UI Manager로부터 받아옴
     private void InitUIComponent()
     {
-        //_uiMenuButton = UIManager.Instance.GetUIComponent<UIMenuButton>();
+        _uiMenuButton = UIManager.Instance.GetUIComponent<UIMenuButton>();
 
         _uiPlayerInfo = UIManager.Instance.GetUIComponent<UIPlayerInfo>();
         _uiPlayerInfo.SetPlayerInfo(player);
