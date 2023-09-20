@@ -8,18 +8,16 @@ public class UIMenuButton : GameUIClass
     [SerializeField] private Button _playerStatusButton;
     [SerializeField] private Button _playerInventoryButton;
 
-    // 메뉴 버튼에 클릭 리스너 연결
-    private void Start()
-    {
-        _playerStatusButton.onClick.AddListener(OpenPlayerStatus);
-        _playerInventoryButton.onClick.AddListener(OpenPlayerInventory);
-    }
+    private UIController _controller;
 
-    // 플레이어 상태창 열기
-    private void OpenPlayerStatus()
+    // 메뉴 버튼에 클릭 리스너 연결
+    void Start()
     {
-        GameUIClass uiPlayerStatus = UIManager.Instance.GetUIComponent<UIPlayerStatus>();
-        uiPlayerStatus.OpenUI();
+        _controller = UIManager.Instance.controller;
+        _controller.OnOpenPlayerInventoryEvent += CloseUI;
+        _controller.OnClosePlayerInventoryEvent += OpenUI;
+        _playerStatusButton.onClick.AddListener(_controller.CallOpenPlayerStatusEvent);
+        _playerInventoryButton.onClick.AddListener(_controller.CallOpenPlayerInventoryEvent);
     }
 
     // 플레이어 인벤토리 열기

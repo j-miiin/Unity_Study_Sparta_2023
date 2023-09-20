@@ -6,16 +6,21 @@ using UnityEngine.UI;
 
 public class UIPlayerStatus : GameUIClass
 {
-
     [SerializeField] private Button _closePlayerStatusButton;
     [SerializeField] private TMP_Text _attackStatText;
     [SerializeField] private TMP_Text _shieldStatText;
     [SerializeField] private TMP_Text _tirednessStatText;
 
+    private UIController _controller;
+
+    // OpenPlayerStatusEvent에 OpenUI 연결
     // 플레이어 정보창 닫기 버튼에 클릭 리스너 연결
     void Start()
     {
+        _controller = UIManager.Instance.controller;
+        _controller.OnOpenPlayerStatusEvent += OpenUI;
         _closePlayerStatusButton.onClick.AddListener(CloseUI);
+        CloseUI();
     }
 
     // player 객체를 받아와서 UI에 플레이어 상태 정보 set

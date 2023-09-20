@@ -56,6 +56,7 @@ public class PlayerDTO
                     Attack -= item.Value;
                     item.IsUsed = false;
                 }
+                Attack = Mathf.Max(0, Attack);
                 break;
             // 방어용 장착 아이템
             case ItemType.SHIELD:
@@ -75,6 +76,7 @@ public class PlayerDTO
                     Shield -= item.Value;
                     item.IsUsed = false;
                 }
+                Shield = Mathf.Max(0, Shield);
                 break;
         }
     }

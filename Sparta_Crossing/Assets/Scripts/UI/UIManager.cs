@@ -8,13 +8,15 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
+    public UIController controller;
+
     Dictionary<string, GameUIClass> uiDic;
 
     private void Awake()
     {
         Instance = this;
+        controller = GetComponent<UIController>();
         uiDic = new Dictionary<string, GameUIClass>();
-        
     }
 
     // 요청 받은 UI 컴포넌트가 딕셔너리 안에 있으면 반환

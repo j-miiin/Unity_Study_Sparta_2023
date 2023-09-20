@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class UIPlayerInventory : GameUIClass
 {
@@ -12,11 +11,21 @@ public class UIPlayerInventory : GameUIClass
     [SerializeField] private Button _closeInventoryButton;
     [SerializeField] private GameObject _contentContainer;
 
+    private UIController _controller;
+
     // 인벤토리 닫기 버튼에 클릭 리스너 연결
     private void Awake()
     {
         transform.localScale = Vector3.one;
-        _closeInventoryButton.onClick.AddListener(CloseUI);
+    }
+
+    private void Start()
+    {
+        _controller = UIManager.Instance.controller;
+        _controller.OnOpenPlayerInventoryEvent += OpenUI;
+        _controller.OnClosePlayerInventoryEvent += CloseUI;
+        _closeInventoryButton.onClick.AddListener(_controller.CallOnClosePlayerInventoryEvent);
+        base.CloseUI();
     }
 
     // 코루틴 함수를 위해 오버라이드
@@ -64,7 +73,6 @@ public class UIPlayerInventory : GameUIClass
         int idx = 0;
         foreach (ItemDTO item in inventory.ItemList)
         {
-            Debug.Log(_contentContainer.transform.childCount);
             GameObject container = _contentContainer.transform.GetChild(idx++).gameObject;
             container.SetActive(true);
             container.GetComponent<UIInventoryItemContainer>().SetItemInfo(item);
