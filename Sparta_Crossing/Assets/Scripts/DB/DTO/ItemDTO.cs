@@ -9,14 +9,18 @@ public class ItemDTO
     public string Name;
     public ItemType Type;
     public string Description;
-    public string Image;
+    public int Value;
+    public int Count;
     public bool IsUsed;
+    public string Image;
 
-    public ItemDTO(string name, ItemType type, string description, string image, bool isUsed)
+    public ItemDTO(string name, ItemType type, string description, int value, int count, string image, bool isUsed)
     {
         Name = name;
         Type = type;
         Description = description;
+        Value = value;
+        Count = count;
         Image = image;
         IsUsed = isUsed;
     }

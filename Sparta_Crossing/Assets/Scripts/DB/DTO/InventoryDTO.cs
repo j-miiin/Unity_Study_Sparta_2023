@@ -15,7 +15,14 @@ public class InventoryDTO
 
     public void AddItem(ItemDTO item)
     {
-        ItemList.Add(item);
+        ItemDTO curItem = ItemList.Find(x => x.Name == item.Name);
+        if (curItem != null)
+        {
+            curItem.Count += 1;
+        } else
+        {
+            ItemList.Add(item);
+        }
     }
 
     public ItemDTO GetItem(int index)

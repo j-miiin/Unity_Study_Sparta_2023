@@ -17,6 +17,8 @@ public class UIManager : MonoBehaviour
         
     }
 
+    // 요청 받은 UI 컴포넌트가 딕셔너리 안에 있으면 반환
+    // 없으면 Load 해와서 저장 후에 반환
     public T GetUIComponent<T>() where T : GameUIClass
     {
         string key = typeof(T).Name;
