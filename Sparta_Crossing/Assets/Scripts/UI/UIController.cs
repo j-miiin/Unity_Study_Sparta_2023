@@ -10,6 +10,7 @@ public class UIController : MonoBehaviour
     public event Action OnClosePlayerInventoryEvent;
     public event Action<ItemDTO, Vector3> OnShowItemDescEvent;
     public event Action OnHideItemDescEvent;
+    public event Action OnOpenStoreEvent;
 
     public void CallOpenPlayerStatusEvent()
     {
@@ -34,5 +35,10 @@ public class UIController : MonoBehaviour
     public void CallOnHideItemDescEvent()
     {
         OnHideItemDescEvent?.Invoke();
+    }
+
+    public void CallOnOpenStoreEvent()
+    {
+        OnOpenStoreEvent?.Invoke();
     }
 }

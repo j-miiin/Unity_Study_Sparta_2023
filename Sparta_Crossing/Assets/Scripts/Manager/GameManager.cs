@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private UIPlayerInfo _uiPlayerInfo;
     private UIPlayerStatus _uiPlayerStatus;
     private UIPlayerInventory _uiPlayerInventory;
+    private UIStore _uiStore;
 
     private void Awake()
     {
@@ -109,6 +110,8 @@ public class GameManager : MonoBehaviour
 
         _uiPlayerInventory = UIManager.Instance.GetUIComponent<UIPlayerInventory>();
         _uiPlayerInventory.SetInventoryUI(player.Inventory);
+
+        _uiStore = UIManager.Instance.GetUIComponent<UIStore>();
     }
 
     // StartScene -> MainScene으로 넘어갈 때, StartScene의 UI 컴포넌트들을 UI Manager의 Dictionary에서 삭제

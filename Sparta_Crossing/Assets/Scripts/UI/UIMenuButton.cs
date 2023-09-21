@@ -7,6 +7,7 @@ public class UIMenuButton : GameUIClass
 {
     [SerializeField] private Button _playerStatusButton;
     [SerializeField] private Button _playerInventoryButton;
+    [SerializeField] private Button _storeButton;
 
     private UIController _controller;
 
@@ -17,5 +18,6 @@ public class UIMenuButton : GameUIClass
         _controller.OnClosePlayerInventoryEvent += OpenUI;
         _playerStatusButton.onClick.AddListener(_controller.CallOpenPlayerStatusEvent);
         _playerInventoryButton.onClick.AddListener(_controller.CallOpenPlayerInventoryEvent);
+        _storeButton.onClick.AddListener(_controller.CallOnOpenStoreEvent);
     }
 }
