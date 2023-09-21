@@ -8,6 +8,8 @@ public class UIController : MonoBehaviour
     public event Action OnOpenPlayerStatusEvent;
     public event Action OnOpenPlayerInventoryEvent;
     public event Action OnClosePlayerInventoryEvent;
+    public event Action<ItemDTO, Vector3> OnShowItemDescEvent;
+    public event Action OnHideItemDescEvent;
 
     public void CallOpenPlayerStatusEvent()
     {
@@ -22,5 +24,15 @@ public class UIController : MonoBehaviour
     public void CallOnClosePlayerInventoryEvent()
     {
         OnClosePlayerInventoryEvent?.Invoke();
+    }
+
+    public void CallOnShowItemDescEvent(ItemDTO item, Vector3 position)
+    {
+        OnShowItemDescEvent?.Invoke(item, position);
+    }
+
+    public void CallOnHideItemDescEvent()
+    {
+        OnHideItemDescEvent?.Invoke();
     }
 }

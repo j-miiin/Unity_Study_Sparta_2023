@@ -77,8 +77,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
-    // 사용할 UI 컴포넌트들을 UI Manager로부터 받아옴
+   
     private void InitUIComponent()
     {
         switch (_curState)
@@ -92,6 +91,7 @@ public class GameManager : MonoBehaviour
         }        
     }
 
+    // 사용할 UI 컴포넌트들을 UI Manager로부터 받아옴
     private void InitStartSceneComponent()
     {
         _uiTitle = UIManager.Instance.GetUIComponent<UITitle>();
@@ -111,16 +111,15 @@ public class GameManager : MonoBehaviour
         _uiPlayerInventory.SetInventoryUI(player.Inventory);
     }
 
-    private void DestroyStartSceneComponent()
+    // StartScene -> MainScene으로 넘어갈 때, StartScene의 UI 컴포넌트들을 UI Manager의 Dictionary에서 삭제
+    // 현재 Scene 이동 구간은 StartScene -> MainScene 밖에 없어서 StartScene의 UI 컴포넌트를 삭제하는 메서드만 있음
+    private void RemoveStartSceneComponent()
     {
         UIManager.Instance.RemoveUIComponent(_uiTitle);
     }
 
     public void LoadMainScene(string playerName)
     {
-        // Scene 이동
-        SceneManager.LoadScene("MainScene");
-
         // 데이터 저장
         if (playerName.Length != 0) PlayerPrefs.SetString(PrefsKey.PLAYER_NAME, playerName);
         InitPlayer();
@@ -128,7 +127,10 @@ public class GameManager : MonoBehaviour
 
         // UI 변경
         _curState = SceneStateType.MAIN;
-        DestroyStartSceneComponent();
+        RemoveStartSceneComponent();
+
+        // Scene 이동
+        SceneManager.LoadScene("MainScene");
     }
 
     public void UpdatePlayerStat(ItemDTO item)

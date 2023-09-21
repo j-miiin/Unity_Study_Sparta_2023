@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class UIPlayerInventory : GameUIClass
 {
@@ -10,6 +12,11 @@ public class UIPlayerInventory : GameUIClass
     [SerializeField] private GameObject _playerInventoryBackgroundImage;
     [SerializeField] private Button _closeInventoryButton;
     [SerializeField] private GameObject _contentContainer;
+    [SerializeField] private GameObject _itemDescriptionImage;
+    [SerializeField] private TMP_Text _itemNameText;
+    [SerializeField] private TMP_Text _itemEffectText;
+
+    private Animator _animator;
 
     private UIController _controller;
 
@@ -17,6 +24,7 @@ public class UIPlayerInventory : GameUIClass
     private void Awake()
     {
         transform.localScale = Vector3.one;
+        _animator = _itemDescriptionImage.GetComponent<Animator>();
     }
 
     private void Start()
@@ -24,6 +32,8 @@ public class UIPlayerInventory : GameUIClass
         _controller = UIManager.Instance.controller;
         _controller.OnOpenPlayerInventoryEvent += OpenUI;
         _controller.OnClosePlayerInventoryEvent += CloseUI;
+        _controller.OnShowItemDescEvent += ShowItemDescImage;
+        _controller.OnHideItemDescEvent += HideItemDescImage;
         _closeInventoryButton.onClick.AddListener(_controller.CallOnClosePlayerInventoryEvent);
         base.CloseUI();
     }
@@ -83,5 +93,39 @@ public class UIPlayerInventory : GameUIClass
             GameObject container = _contentContainer.transform.GetChild(i).gameObject;
             container.SetActive(false);
         }
+    }
+
+    public void ShowItemDescImage(ItemDTO item, Vector3 position)
+    {
+        _itemNameText.text = item.Name;
+
+        string effectStr = "";
+        switch (item.Type)
+        {
+            case ItemType.HEALTH:
+                effectStr = "피로도 -";
+                break;
+            case ItemType.ATTACK:
+                effectStr = "공격력 +";
+                break;
+            case ItemType.SHIELD:
+                effectStr = "방어력 +";
+                break;
+        }
+        _itemEffectText.text = effectStr + item.Value;
+        _itemDescriptionImage.SetActive(true);
+
+        position += new Vector3(-_itemDescriptionImage.GetComponent<RectTransform>().rect.width * 0.5f,
+            -_itemDescriptionImage.GetComponent<RectTransform>().rect.height * 0.5f,
+            0);
+        _itemDescriptionImage.transform.position = position;
+
+        _animator.SetBool("IsOpen", true);
+    }
+
+    public void HideItemDescImage()
+    {
+        _animator.SetBool("IsOpen", false);
+        _itemDescriptionImage.SetActive(false);
     }
 }

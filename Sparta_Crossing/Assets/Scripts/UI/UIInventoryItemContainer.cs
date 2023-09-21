@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem.XR;
 using UnityEngine.UI;
+using static UIController;
 
-public class UIInventoryItemContainer : GameUIClass
+public class UIInventoryItemContainer : GameUIClass, IPointerEnterHandler, IPointerExitHandler
 {
     const int LARGE_FONT_SIZE = 35;
     const int SMALL_FONT_SIZE = 25;
@@ -12,19 +15,17 @@ public class UIInventoryItemContainer : GameUIClass
     [SerializeField] private Image _inventoryItemImage;
     [SerializeField] private GameObject _inventoryItemStatusImage;
     [SerializeField] private TMP_Text _inventoryItemStatusText;
-    [SerializeField] private GameObject _itemDescriptionImage;
-    [SerializeField] private TMP_Text _itemNameText;
-    [SerializeField] private TMP_Text _itemEffectText;
-
-    private Animator _animator;
 
     private ItemDTO _item;
+
+    private UIController _controller;
 
     // 인벤토리에서 아이템을 클릭하면 팝업이 나타나도록 클릭 리스너 연결
     private void Awake()
     {
         GetComponent<Button>().onClick.AddListener(OpenItemPopUp);
-        _animator = _itemDescriptionImage.GetComponent<Animator>();
+        _controller = UIManager.Instance.controller;
+
     }
 
     private void OpenItemPopUp()
@@ -79,31 +80,13 @@ public class UIInventoryItemContainer : GameUIClass
         }
     }
 
-    public void OnPointerEnter()
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        _itemNameText.text = _item.Name;
-
-        string effectStr = "";
-        switch (_item.Type)
-        {
-            case ItemType.HEALTH:
-                effectStr = "피로도 -";
-                break;
-            case ItemType.ATTACK:
-                effectStr = "공격력 +";
-                break;
-            case ItemType.SHIELD:
-                effectStr = "방어력 +";
-                break;
-        }
-        _itemEffectText.text = effectStr + _item.Value;
-        _itemDescriptionImage.SetActive(true);
-        _animator.SetBool("IsOpen", true);
+        _controller.CallOnShowItemDescEvent(_item, transform.position);
     }
 
-    public void OnPointerExit()
+    public void OnPointerExit(PointerEventData eventData)
     {
-        _animator.SetBool("IsOpen", false);
-        _itemDescriptionImage.SetActive(false);
+        _controller.CallOnHideItemDescEvent();
     }
 }
