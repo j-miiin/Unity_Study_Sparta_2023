@@ -57,22 +57,25 @@ public class GameManager : MonoBehaviour
         {
             player = tmpPlayer;
         }
-        SetDefaultInventory();
+        //SetDefaultInventory();
     }
 
+    // 초기 아이템 넣어주기 위한 함수 (테스트용)
     private void SetDefaultInventory()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < DataManager.Instance.itemList.Count; i++)
         {
-            ItemDTO consumableItem = DataManager.Instance.itemList[0];
-            player.Inventory.AddItem(consumableItem);
+            ItemDTO item = DataManager.Instance.itemList[i];
+            player.Inventory.AddItem(item);
+            if (i == 0)
+            {
+                for (int j = 0; j < 15; j++) player.Inventory.AddItem(item);
+            }
+            if (i == 3)
+            {
+                for (int j = 0; j < 5; j++) player.Inventory.AddItem(item);
+            }
         }
-
-        ItemDTO equipableItem1 = DataManager.Instance.itemList[1];
-        player.Inventory.AddItem(equipableItem1);
-
-        ItemDTO equipableItem2 = DataManager.Instance.itemList[2];
-        player.Inventory.AddItem(equipableItem2);
     }
 
     // 사용할 UI 컴포넌트들을 UI Manager로부터 받아옴

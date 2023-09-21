@@ -12,6 +12,11 @@ public class UIInventoryItemContainer : GameUIClass
     [SerializeField] private Image _inventoryItemImage;
     [SerializeField] private GameObject _inventoryItemStatusImage;
     [SerializeField] private TMP_Text _inventoryItemStatusText;
+    [SerializeField] private GameObject _itemDescriptionImage;
+    [SerializeField] private TMP_Text _itemNameText;
+    [SerializeField] private TMP_Text _itemEffectText;
+
+    private Animator _animator;
 
     private ItemDTO _item;
 
@@ -19,6 +24,7 @@ public class UIInventoryItemContainer : GameUIClass
     private void Awake()
     {
         GetComponent<Button>().onClick.AddListener(OpenItemPopUp);
+        _animator = _itemDescriptionImage.GetComponent<Animator>();
     }
 
     private void OpenItemPopUp()
@@ -71,5 +77,33 @@ public class UIInventoryItemContainer : GameUIClass
             _inventoryItemStatusText.text = "E";
             _inventoryItemStatusText.fontSize = LARGE_FONT_SIZE;
         }
+    }
+
+    public void OnPointerEnter()
+    {
+        _itemNameText.text = _item.Name;
+
+        string effectStr = "";
+        switch (_item.Type)
+        {
+            case ItemType.HEALTH:
+                effectStr = "피로도 -";
+                break;
+            case ItemType.ATTACK:
+                effectStr = "공격력 +";
+                break;
+            case ItemType.SHIELD:
+                effectStr = "방어력 +";
+                break;
+        }
+        _itemEffectText.text = effectStr + _item.Value;
+        _itemDescriptionImage.SetActive(true);
+        _animator.SetBool("IsOpen", true);
+    }
+
+    public void OnPointerExit()
+    {
+        _animator.SetBool("IsOpen", false);
+        _itemDescriptionImage.SetActive(false);
     }
 }
