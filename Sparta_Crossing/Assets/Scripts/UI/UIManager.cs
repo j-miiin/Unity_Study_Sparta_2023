@@ -14,7 +14,17 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        } else if (Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);
+
         controller = GetComponent<UIController>();
         uiDic = new Dictionary<string, GameUIClass>();
     }
@@ -30,5 +40,13 @@ public class UIManager : MonoBehaviour
             uiDic.Add(key, obj.GetComponent<T>());
         }
         return (T)uiDic[key];
+    }
+
+    public void RemoveComponent<T>(T uiComponent) where T : GameUIClass
+    {
+        if (uiDic.ContainsKey(typeof(T).Name))
+        {
+            uiDic.Remove(typeof(T).Name);
+        }
     }
 }
