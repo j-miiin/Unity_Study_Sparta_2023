@@ -51,8 +51,8 @@
 ![슬라이드9](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/5e4c82a5-1c90-431a-99f6-34e7cc6dab27)
 ![슬라이드10](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/e3886d9c-970c-437a-bb76-ce436a0f15dc)
 ![슬라이드11](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/5934cd8f-ad96-41fb-acdb-bbe277e54826)
-![슬라이드12](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/140578ff-a35f-4c4a-80bf-8d7273514774)
-![슬라이드13](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/4c740783-74bb-4caa-a5e3-082f55342a5a)
+![슬라이드12](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/cd683bf4-e014-4131-bef5-46b4a9e2b36f)
+![슬라이드13](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/809fc075-edf3-4067-a682-ec679f5bcf8c)
 ![슬라이드14](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/e747e497-3e40-4801-a3bc-8a051b2556a2)
 
 <br>
