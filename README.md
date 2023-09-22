@@ -24,7 +24,7 @@
 
 ![시작화면](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/0755ed8e-4d69-4856-a072-2602f36cfd64)
 ![닉네임 입력](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/1d54237e-be9a-4bf6-88c7-36ea13bb810e)
-![캐릭터 스탯 창](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/bdbd85a5-ac18-419e-920c-3fa233d8a2a0)
+![캐릭터 스탯 창](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/53271c48-d435-4420-a57a-1a059444da11)
 ![인벤토리_아이템hover](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/89a0afdb-1209-494e-a79e-1cdf7fad7377)
 ![인벤토리 아이템 장착](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/bfc5070e-71e5-435f-88fd-7065a373bfaf)
 ![너굴 상점](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/f50b0405-3688-49a3-8d36-0c0b987a22cd)
