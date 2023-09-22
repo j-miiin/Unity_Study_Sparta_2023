@@ -33,6 +33,9 @@
 <br>
 
 ## 기능과 구조
+
+[🌳 목차로 돌아가기 🌳](#목차)
+
 ![슬라이드1](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/5e9cf497-91f4-408f-b8b2-3e4b447e2819)
 ![슬라이드2](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/8e3e242b-4dc5-40c1-9681-46c2ca337fe9)
 ![슬라이드3](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/386475fb-c42d-4607-b338-35a4afad6f4e)
@@ -111,6 +114,9 @@
 <br>
 
 ## 테스트 유의 사항
+
+[🌳 목차로 돌아가기 🌳](#목차)
+
 - PlayerPrefs가 존재하면(이전에 플레이한 기록이 있다면) StartScene에서 "Press To Start" 클릭 시 바로 MainScene으로 넘어감
 - 닉네임 입력 테스트 방법
   1. Resources/DB/PlayerDatabase 파일 삭제
@@ -126,5 +132,8 @@
 <br>
 
 ## WHAT I LEARNED
+
+[🌳 목차로 돌아가기 🌳](#목차)
+
 ![슬라이드15](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/0b0b0f35-cb02-4b8b-ace9-38d8e5ddfdc9)
 ![슬라이드16](https://github.com/j-miiin/Unity_Study_Sparta_2023/assets/62470991/3bf5bbe0-8dfe-4751-af8c-a976f560af8d)
