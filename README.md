@@ -12,6 +12,10 @@
 
 <br>
 
+## [Notion](https://www.notion.so/Sparta-Crossing-d1ad18261c3c4dada674edc9c7f72558)
+
+<br>
+
 * * *
 
 ## 프로젝트 미리 보기
@@ -78,7 +82,7 @@
 | UIPlayerInfo | [MainScene 화면 세팅 - 플레이어 정보](https://github.com/j-miiin/Unity_Study_Sparta_2023/blob/f5f4fd619fc30fa10259dfd2c554ec673aeecfdd/Sparta_Crossing/Assets/Scripts/UI/UIPlayerInfo.cs#L8-L22) |
 | UIMenuButton | [MainScene 화면 세팅 - 메뉴 버튼](https://github.com/j-miiin/Unity_Study_Sparta_2023/blob/f5f4fd619fc30fa10259dfd2c554ec673aeecfdd/Sparta_Crossing/Assets/Scripts/UI/UIMenuButton.cs#L6C14-L23) |
 | UIPlayerStatus | [캐릭터 스탯 UI](https://github.com/j-miiin/Unity_Study_Sparta_2023/blob/f5f4fd619fc30fa10259dfd2c554ec673aeecfdd/Sparta_Crossing/Assets/Scripts/UI/UIPlayerStatus.cs#L7-L33) |
-| UIPlayerInventory | [인벤토리 UI](https://github.com/j-miiin/Unity_Study_Sparta_2023/blob/f5f4fd619fc30fa10259dfd2c554ec673aeecfdd/Sparta_Crossing/Assets/Scripts/UI/UIPlayerInventory.cs#L81-L96) |
+| UIPlayerInventory | [인벤토리 UI 세팅](https://github.com/j-miiin/Unity_Study_Sparta_2023/blob/f5f4fd619fc30fa10259dfd2c554ec673aeecfdd/Sparta_Crossing/Assets/Scripts/UI/UIPlayerInventory.cs#L81-L96) |
 | | [인벤토리 Open/Close 애니메이션](https://github.com/j-miiin/Unity_Study_Sparta_2023/blob/f5f4fd619fc30fa10259dfd2c554ec673aeecfdd/Sparta_Crossing/Assets/Scripts/UI/UIPlayerInventory.cs#L41-L79) |
 | | [인벤토리 아이템 hover 이벤트 - 설명창 UI 세팅 및 Show/Hide](https://github.com/j-miiin/Unity_Study_Sparta_2023/blob/f5f4fd619fc30fa10259dfd2c554ec673aeecfdd/Sparta_Crossing/Assets/Scripts/UI/UIPlayerInventory.cs#L98-L130) |
 | UIInventoryItemContainer | [인벤토리 아이템 개별 정보 세팅](https://github.com/j-miiin/Unity_Study_Sparta_2023/blob/f5f4fd619fc30fa10259dfd2c554ec673aeecfdd/Sparta_Crossing/Assets/Scripts/UI/UIInventoryItemContainer.cs#L38C23-L81) |
