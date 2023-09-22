@@ -24,7 +24,7 @@ public class SingletonManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         // 닉네임 입력부터 하고 싶을 때 PlayerDatabase 지우고 주석 풀기
-        //PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteAll();
 
         managerDic = new Dictionary<string, MonoBehaviour>();
 

@@ -58,7 +58,8 @@ public class GameManager : MonoBehaviour
         {
             player = tmpPlayer;
         }
-        //SetDefaultInventory();
+        // 인벤토리에 아이템 넣어서 테스트할 때 주석 풀기
+        SetDefaultInventory();
     }
 
     // 초기 아이템 넣어주기 위한 함수 (테스트용)
