@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -27,7 +26,7 @@ public class NPC : MonoBehaviour, IDamagable
 
     [Header("Wandering")]
     public float minWanderDistance;
-    public float maxWadnerDistance;
+    public float maxWanderDistance;
     public float minWanderWaitTime;
     public float maxWanderWaitTime;
 
@@ -134,12 +133,12 @@ public class NPC : MonoBehaviour, IDamagable
         if (agent.remainingDistance < 0.1f)
         {
             agent.SetDestination(GetFleeLocation());
-        } else {
+        } 
+        else 
+        {
             SetState(AIState.Wandering);
         }
     }
-
-
 
     private void SetState(AIState newState)
     {
@@ -192,14 +191,14 @@ public class NPC : MonoBehaviour, IDamagable
         NavMeshHit hit;
         // 경로 상의 가장 가까운 position을 가져옴
         // Random.onUnitSphere : 1이라는 거리를 가지며 구체를 이루는 모든 방향을 줌
-        NavMesh.SamplePosition(transform.position + (Random.onUnitSphere) * Random.Range(minWanderDistance, maxWadnerDistance), 
-            out hit, maxWadnerDistance, NavMesh.AllAreas);
+        NavMesh.SamplePosition(transform.position + (Random.onUnitSphere) * Random.Range(minWanderDistance, maxWanderDistance), 
+            out hit, maxWanderDistance, NavMesh.AllAreas);
 
         int i = 0;
         while (Vector3.Distance(transform.position, hit.position) < detectDistance)
         {
-            NavMesh.SamplePosition(transform.position + (Random.onUnitSphere) * Random.Range(minWanderDistance, maxWadnerDistance),
-                 out hit, maxWadnerDistance, NavMesh.AllAreas);
+            NavMesh.SamplePosition(transform.position + (Random.onUnitSphere) * Random.Range(minWanderDistance, maxWanderDistance),
+                 out hit, maxWanderDistance, NavMesh.AllAreas);
             i++;
             if (i == 30) break;
         }
@@ -212,14 +211,14 @@ public class NPC : MonoBehaviour, IDamagable
         NavMeshHit hit;
         // 경로 상의 가장 가까운 position을 가져옴
         // Random.onUnitSphere : 1이라는 거리를 가지며 구체를 이루는 모든 방향을 줌
-        NavMesh.SamplePosition(transform.position + (Random.onUnitSphere) * safeDistance,
-            out hit, maxWadnerDistance, NavMesh.AllAreas);
+        NavMesh.SamplePosition(transform.position + (Random.onUnitSphere * safeDistance),
+            out hit, maxWanderDistance, NavMesh.AllAreas);
 
         int i = 0;
         while (GetDestinationAngle(hit.position) > 90 || playerDistance < safeDistance)
         {
-            NavMesh.SamplePosition(transform.position + (Random.onUnitSphere) * safeDistance,
-                 out hit, maxWadnerDistance, NavMesh.AllAreas);
+            NavMesh.SamplePosition(transform.position + (Random.onUnitSphere * safeDistance),
+                 out hit, maxWanderDistance, NavMesh.AllAreas);
             i++;
             if (i == 30) break;
         }
