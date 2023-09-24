@@ -8,6 +8,8 @@ public class EquipTool : Equip
     private bool attacking;
     public float attackDistance;
 
+    public float useStamina;
+
     // 자원을 채취할 수 있는지
     [Header("Resource Gathering")]
     public bool doesGatherResources;
@@ -26,13 +28,16 @@ public class EquipTool : Equip
         animator = GetComponent<Animator>();
     }
 
-    public override void OnAttackInput()
+    public override void OnAttackInput(PlayerConditions conditions)
     {
         if (!attacking)
         {
-            attacking = true;
-            animator.SetTrigger("Attack");
-            Invoke("OnCanAttack", attackRate);
+            if (conditions.UseStamina(useStamina))
+            {
+                attacking = true;
+                animator.SetTrigger("Attack");
+                Invoke("OnCanAttack", attackRate);
+            }
         }
     }
 
