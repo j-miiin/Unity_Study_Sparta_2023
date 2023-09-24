@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 2331709138089559559}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-8853153581889640684
 MonoBehaviour:
@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cdeff28ce9e25c449a3d8d75971dfdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRate: 0
-  attackDistance: 0
+  attackRate: 0.8
+  attackDistance: 1
   doesGatherResources: 1
   doesDealDamage: 0
   damage: 0
