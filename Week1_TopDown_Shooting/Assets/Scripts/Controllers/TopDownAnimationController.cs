@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class TopDownAnimationController : TopDownAnimations
 {
+    // StringToHash : 특정 문자열을 일정한 공식에 의해 Hash 값으로 변환 
+    // 문자열 연산은 비용이 비싸기 때문에 Hash 값으로 비교
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
     private static readonly int Attack = Animator.StringToHash("Attack");
     private static readonly int IsHit = Animator.StringToHash("IsHit");
-
 
     private HealthSystem _healthSystem;
 

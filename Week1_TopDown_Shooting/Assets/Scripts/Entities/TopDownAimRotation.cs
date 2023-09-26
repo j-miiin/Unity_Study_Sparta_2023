@@ -15,7 +15,6 @@ public class TopDownAimRotation : MonoBehaviour
         _controller = GetComponent<TopDownCharacterController>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         _controller.OnLookEvent += OnAim;
@@ -28,7 +27,7 @@ public class TopDownAimRotation : MonoBehaviour
 
     private void RotateArm(Vector2 direction)
     {
-        // x, y에 대하여 tan 값을 구함->벡터의 각도
+        // x, y에 대하여 아크tan 값을 구함->벡터의 각도
         // Mathf.Rad2Deg를 곱해서 radian 값을 degree 값으로 변환 -> Euler 함수 사용 가능
         float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 

@@ -40,11 +40,11 @@ public class CharacterStatsHandler : MonoBehaviour
         AttackSO attackSO = null;
         if (baseStats.attackSO != null)
         {
-            attackSO = Instantiate(baseStats.attackSO);
+            attackSO = Instantiate(baseStats.attackSO); // baseStat을 복제 -> 자유롭게 수정하기 위해
         }
 
-        CurrentStats = new CharacterStats { attackSO = attackSO };
-        UpdateStats((a, b) => b, baseStats);    //a, b를 받아서 후자를 사용
+        CurrentStats = new CharacterStats { attackSO = attackSO };  // 생성하면서 초기화는 중괄호
+        UpdateStats((a, b) => b, baseStats);    //a, b를 받아서 후자를 사용 -> CurrentStat에 baseStat을 덮어씌움
         if (CurrentStats.attackSO != null)
         {
             CurrentStats.attackSO.target = baseStats.attackSO.target;

@@ -36,7 +36,7 @@ public class TopDownShooting : MonoBehaviour
         int numberOfProjectilesPerShot = rangedAttackData.numberOfProjectilesPerShot;
 
         // 캐릭터가 화살을 발사하는 모양이 부채꼴 모양이 되도록 각도를 미리 땡겨주는 것
-        float minAngle = (numberOfProjectilesPerShot / 2) * projectilesAngleSpace + 0.5f * rangedAttackData.multipleProjectilesAngle;
+        float minAngle = -(numberOfProjectilesPerShot / 2) * projectilesAngleSpace + 0.5f * rangedAttackData.multipleProjectilesAngle;
 
         for (int i = 0; i < numberOfProjectilesPerShot; i++)
         {
@@ -51,7 +51,7 @@ public class TopDownShooting : MonoBehaviour
     {
         _projectileManager.ShootBullet(
             projectileSpawnPosition.position,   // 발사 위치
-            RotateVector2(_aimDirection, angle),    // 회전각
+            RotateVector2(_aimDirection, angle),    // 우리가 가진 angle로 벡터를 만들어냄
             rangedAttackData    // 공격 정보
             );
 
@@ -61,6 +61,9 @@ public class TopDownShooting : MonoBehaviour
         }
     }
 
+    // 벡터를 사용해서 direction을 구해줘야 함
+    // 우리가 갖고 있는 것은 angle이므로 angle로 벡터를 만들어주는 것
+    // 뒤에서 곱한 벡터를 앞의 Quaternion으로 회전시킨 벡터가 나옴
     private static Vector2 RotateVector2(Vector2 v, float degree)
     {
         return Quaternion.Euler(0, 0, degree) * v;

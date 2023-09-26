@@ -18,6 +18,7 @@ public class DisappearOnDeath : MonoBehaviour
     {
         _rigidbody.velocity = Vector3.zero;
 
+        // 나를 포함하여 내 하위에 있는 모든 SpriteRenderer를 찾아옴
         foreach (SpriteRenderer renderer in transform.GetComponentsInChildren<SpriteRenderer>())
         {
             Color color = renderer.color;
@@ -28,9 +29,9 @@ public class DisappearOnDeath : MonoBehaviour
         // 모든 컴포넌트는 Behaviour를 상속받게 됨
         foreach (Behaviour component in transform.GetComponentsInChildren<Behaviour>())
         {
-            component.enabled = false;
+            component.enabled = false;  // 다 꺼줌
         }
 
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 2f);    // enemy는 재사용 X
     }
 }

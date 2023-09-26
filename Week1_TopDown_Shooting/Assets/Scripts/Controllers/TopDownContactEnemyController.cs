@@ -12,6 +12,7 @@ public class TopDownContactEnemyController : TopDownEnemyController
     [SerializeField] private SpriteRenderer characterRenderer;
 
     private HealthSystem _healthSystem;
+    // this와 충돌한 오브젝트의 HealthSystem과 Movement
     private HealthSystem _collidingTargetHealthSystem;
     private TopDownMovement _collidingMovement;
  
@@ -24,6 +25,7 @@ public class TopDownContactEnemyController : TopDownEnemyController
 
     private void OnDamage()
     {
+        // 데미지를 받으면 followRange를 크게 조정하여 무조건 따라오도록 만듦
         followRange = 100f;
     }
 

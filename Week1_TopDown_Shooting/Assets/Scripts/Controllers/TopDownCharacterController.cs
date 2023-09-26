@@ -10,6 +10,7 @@ public class TopDownCharacterController : MonoBehaviour
     public event Action<Vector2> OnLookEvent;
     public event Action<AttackSO> OnAttackEvent;
 
+    // 마지막으로 공격한 시간
     private float _timeSinceLastAttack = float.MaxValue;
     protected bool IsAttacking { get; set; }
 
@@ -27,13 +28,14 @@ public class TopDownCharacterController : MonoBehaviour
 
     private void HandleAttackDelay()
     {
-        if (Stats.CurrentStats.attackSO == null) return;
+        if (Stats.CurrentStats.attackSO == null) return;    // attack 정보가 없으므로 공격을 하지 않음
 
-        if (_timeSinceLastAttack <= Stats.CurrentStats.attackSO.delay)
-        {
-            _timeSinceLastAttack += Time.deltaTime;
+        if (_timeSinceLastAttack <= Stats.CurrentStats.attackSO.delay)  // 현재 공격 딜레이보다 시간이 적으면
+        {   
+            _timeSinceLastAttack += Time.deltaTime;     // 시간 증가
         }
 
+        // 마우스가 눌리는 동안 딜레이보다 마지막으로 공격한 시간이 커지면 
         if (IsAttacking && _timeSinceLastAttack > Stats.CurrentStats.attackSO.delay)
         {
             _timeSinceLastAttack = 0;

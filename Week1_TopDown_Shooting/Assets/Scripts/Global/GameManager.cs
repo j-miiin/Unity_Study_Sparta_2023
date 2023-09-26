@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
                 for (int i = 0; i < waveSpawnPosCount; i++)
                 {
                     int posIdx = Random.Range(0, spawnPositions.Count);
-                    for (int j = 0; j < waveSpawnPosCount; j++)
+                    for (int j = 0; j < waveSpawnCount; j++)
                     {
                         int prefabIdx = Random.Range(0, enemyPrefabs.Count);
                         GameObject enemy = Instantiate(enemyPrefabs[prefabIdx], spawnPositions[posIdx].position, Quaternion.identity);

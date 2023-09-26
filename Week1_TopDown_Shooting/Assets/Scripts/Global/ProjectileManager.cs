@@ -24,7 +24,7 @@ public class ProjectileManager : MonoBehaviour
     {
         GameObject obj = objectPool.SpawnFromPool(attackData.bulletNameTag);
 
-        obj.transform.position = startPosition;
+        obj.transform.position = startPosition;     // 시작 위치
         RangedAttackController attackController = obj.GetComponent<RangedAttackController>();
         attackController.InitializeAttack(direction, attackData, this);
 

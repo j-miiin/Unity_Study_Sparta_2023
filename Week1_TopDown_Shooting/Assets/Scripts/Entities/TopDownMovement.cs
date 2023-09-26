@@ -15,6 +15,7 @@ public class TopDownMovement : MonoBehaviour
 
     private void Awake()
     {
+        // GetComponent : 컴포넌트끼리 서로를 인지할 수 있는 방법
         _controller = GetComponent<TopDownCharacterController>();
         _stats = GetComponent<CharacterStatsHandler>();
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -47,11 +48,11 @@ public class TopDownMovement : MonoBehaviour
 
     private void ApplyMovement(Vector2 direction)
     {
-        direction *= _stats.CurrentStats.speed;
+        direction *= _stats.CurrentStats.speed;     // 현재 스탯의 스피드를 곱해줌
         if (knockbackDuration > 0.0f)
         {
             direction += _knockback;
         }
-        _rigidbody.velocity = direction;
+        _rigidbody.velocity = direction;    // 가속도 저장. 가속도만큼 rigidbody가 알아서 움직임
     }
 }
