@@ -8,6 +8,13 @@ public class PlayerInput : MonoBehaviour
 
     public PlayerInputActions.PlayerActions PlayerActions { get; private set; }
 
+    private void Awake()
+    {
+        InputActions = new PlayerInputActions();
+
+        PlayerActions = InputActions.Player;
+    }
+
     // InputActionÀ» Å°°Å³ª ²¨ÁÜ
     private void OnEnable()
     {

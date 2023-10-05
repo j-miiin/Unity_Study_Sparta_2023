@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     {
         // Ä¿¼­ lock
         Cursor.lockState = CursorLockMode.Locked;
-        stateMachine.ChangeState(stateMachine.idleState);
+        stateMachine.ChangeState(stateMachine.IdleState);
     }
 
     private void Update()

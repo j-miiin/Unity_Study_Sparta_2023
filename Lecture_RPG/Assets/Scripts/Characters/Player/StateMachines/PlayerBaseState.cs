@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,12 +19,12 @@ public class PlayerBaseState : IState
     // 각 State에 들어갈 때 그 State에서 필요한 InputAction에 대한 Callback을 연결/해지
     public virtual void Enter()
     {
-        AddInputActionsCallback();
+        AddInputActionsCallbacks();
     }
 
     public virtual void Exit()
     {
-        RemoveInputActionsCallback();
+        RemoveInputActionsCallbacks();
     }
 
     public virtual void HandleInput()
@@ -33,7 +34,7 @@ public class PlayerBaseState : IState
 
     public virtual void PhysicsUpdate()
     {
-        throw new System.NotImplementedException();
+
     }
 
     public virtual void Update()
@@ -42,12 +43,26 @@ public class PlayerBaseState : IState
     }
 
     // InputAction에 걸어줄 Callback
-    protected virtual void AddInputActionsCallback()
+    protected virtual void AddInputActionsCallbacks()
+    {
+        PlayerInput input = stateMachine.Player.Input;
+        input.PlayerActions.Movement.canceled += OnMoveCanceled;
+        input.PlayerActions.Run.started += OnRunStarted;
+    }
+
+    protected virtual void RemoveInputActionsCallbacks()
+    {
+        PlayerInput input = stateMachine.Player.Input;
+        input.PlayerActions.Movement.canceled -= OnMoveCanceled;
+        input.PlayerActions.Run.started -= OnRunStarted;
+    }
+
+    protected virtual void OnRunStarted(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
 
     }
 
-    protected virtual void RemoveInputActionsCallback()
+    protected virtual void OnMoveCanceled(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
 
     }
@@ -70,6 +85,7 @@ public class PlayerBaseState : IState
     // 카메라가 바라보는 방향으로 이동할 것임
     private Vector3 GetMovementDirection()
     {
+        // 메인 카메라가 바라보는 정면과 오른쪽
         Vector3 forward = stateMachine.MainCameraTransform.forward;
         Vector3 right = stateMachine.MainCameraTransform.right;
 

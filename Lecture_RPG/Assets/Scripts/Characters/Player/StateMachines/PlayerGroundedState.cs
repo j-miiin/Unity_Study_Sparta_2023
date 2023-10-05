@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerGroundedState : PlayerBaseState
 {
@@ -29,5 +30,26 @@ public class PlayerGroundedState : PlayerBaseState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+    }
+
+    protected override void OnMoveCanceled(InputAction.CallbackContext context)
+    {
+        // 입력이 들어오지 않은 경우
+        if (stateMachine.MovementInput == Vector2.zero)
+        {
+            return;
+        }
+
+        // 입력 키가 떼어졌을 때
+        // Ground에서 정의하는 이유 : 다른 State에서 키를 뗐을 때는 다른 동작을 해야 함
+        // Ground에서 키를 떼면 어떻게 할 것이냐를 정의
+        stateMachine.ChangeState(stateMachine.IdleState);
+
+        base.OnMoveCanceled(context);
+    }
+
+    protected virtual void OnMove()
+    {
+        stateMachine.ChangeState(stateMachine.WalkState);
     }
 }
