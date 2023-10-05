@@ -1,7 +1,7 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 // 모든 State는 StateMachine과 역참조를 진행
@@ -46,23 +46,32 @@ public class PlayerBaseState : IState
     protected virtual void AddInputActionsCallbacks()
     {
         PlayerInput input = stateMachine.Player.Input;
-        input.PlayerActions.Movement.canceled += OnMoveCanceled;
+        input.PlayerActions.Movement.canceled += OnMovementCanceled;
         input.PlayerActions.Run.started += OnRunStarted;
+
+        input.PlayerActions.Jump.started += OnJumpStarted;
     }
 
     protected virtual void RemoveInputActionsCallbacks()
     {
         PlayerInput input = stateMachine.Player.Input;
-        input.PlayerActions.Movement.canceled -= OnMoveCanceled;
+        input.PlayerActions.Movement.canceled -= OnMovementCanceled;
         input.PlayerActions.Run.started -= OnRunStarted;
+
+        input.PlayerActions.Jump.started -= OnJumpStarted;
     }
 
-    protected virtual void OnRunStarted(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    protected virtual void OnRunStarted(InputAction.CallbackContext context)
     {
 
     }
 
-    protected virtual void OnMoveCanceled(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    protected virtual void OnMovementCanceled(InputAction.CallbackContext context)
+    {
+
+    }
+
+    protected virtual void OnJumpStarted(InputAction.CallbackContext context)
     {
 
     }
@@ -106,7 +115,10 @@ public class PlayerBaseState : IState
     private void Move(Vector3 movementDirection)
     {
         float movementSpeed = GetMovementSpeed();
-        stateMachine.Player.Controller.Move((movementDirection * movementSpeed) * Time.deltaTime);
+        stateMachine.Player.Controller.Move(
+            ((movementDirection * movementSpeed)
+            + stateMachine.Player.ForceReceiver.Movement)
+            * Time.deltaTime);
     }
 
     private void Rotate(Vector3 movementDirection)

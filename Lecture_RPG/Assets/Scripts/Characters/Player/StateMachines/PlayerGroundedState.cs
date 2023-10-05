@@ -30,9 +30,19 @@ public class PlayerGroundedState : PlayerBaseState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+
+        // 땅에 있지 않을 때
+        // AND velocity.y에 작용하는 값이 우리가 gravity를 한 fixedDeltaTime에 적용하는 값보다 작을 때
+        // (== 훨씬 더 빠른 속도로 떨어질 때)
+        if (!stateMachine.Player.Controller.isGrounded
+            && stateMachine.Player.Controller.velocity.y < Physics.gravity.y * Time.fixedDeltaTime)
+        {
+            stateMachine.ChangeState(stateMachine.FallState);
+            return;
+        }
     }
 
-    protected override void OnMoveCanceled(InputAction.CallbackContext context)
+    protected override void OnMovementCanceled(InputAction.CallbackContext context)
     {
         // 입력이 들어오지 않은 경우
         if (stateMachine.MovementInput == Vector2.zero)
@@ -45,7 +55,12 @@ public class PlayerGroundedState : PlayerBaseState
         // Ground에서 키를 떼면 어떻게 할 것이냐를 정의
         stateMachine.ChangeState(stateMachine.IdleState);
 
-        base.OnMoveCanceled(context);
+        base.OnMovementCanceled(context);
+    }
+
+    protected override void OnJumpStarted(InputAction.CallbackContext context)
+    {
+        stateMachine.ChangeState(stateMachine.JumpState);
     }
 
     protected virtual void OnMove()
