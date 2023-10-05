@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
+// 특정 상태에서만 사용할 키를 구현할 때는
+// 각 상황의 큰 상태들(Ground, Air, Attack)에서 override 해서 구현하는 방법도 잇음
+
 // 모든 State는 StateMachine과 역참조를 진행
 public class PlayerBaseState : IState
 {
@@ -50,6 +53,9 @@ public class PlayerBaseState : IState
         input.PlayerActions.Run.started += OnRunStarted;
 
         input.PlayerActions.Jump.started += OnJumpStarted;
+
+        input.PlayerActions.Attack.performed += OnAttackPerformed;
+        input.PlayerActions.Attack.canceled += OnAttackCanceled;
     }
 
     protected virtual void RemoveInputActionsCallbacks()
@@ -59,6 +65,9 @@ public class PlayerBaseState : IState
         input.PlayerActions.Run.started -= OnRunStarted;
 
         input.PlayerActions.Jump.started -= OnJumpStarted;
+
+        input.PlayerActions.Attack.performed -= OnAttackPerformed;
+        input.PlayerActions.Attack.canceled -= OnAttackCanceled;
     }
 
     protected virtual void OnRunStarted(InputAction.CallbackContext context)
@@ -74,6 +83,16 @@ public class PlayerBaseState : IState
     protected virtual void OnJumpStarted(InputAction.CallbackContext context)
     {
 
+    }
+
+    protected virtual void OnAttackPerformed(InputAction.CallbackContext go)
+    {
+        stateMachine.IsAttacking = true;
+    }
+
+    protected virtual void OnAttackCanceled(InputAction.CallbackContext go)
+    {
+        stateMachine.IsAttacking = false;
     }
 
     private void ReadMovementInput()
@@ -121,6 +140,12 @@ public class PlayerBaseState : IState
             * Time.deltaTime);
     }
 
+    // direction 값을 받지 않고 ForceReceiver가 가진 방향으로 이동
+    protected void ForceMove()
+    {
+        stateMachine.Player.Controller.Move(stateMachine.Player.ForceReceiver.Movement * Time.deltaTime);
+    }
+
     private void Rotate(Vector3 movementDirection)
     {
         if (movementDirection != Vector3.zero)
@@ -148,5 +173,27 @@ public class PlayerBaseState : IState
     protected void StopAnimation(int animationHash)
     {
         stateMachine.Player.Animator.SetBool(animationHash, false);
+    }
+
+    protected float GetNormalizedTime(Animator animator, string tag)
+    {
+        AnimatorStateInfo currentInfo = animator.GetCurrentAnimatorStateInfo(0);
+        AnimatorStateInfo nextInfo = animator.GetCurrentAnimatorStateInfo(0);
+
+        // 현재 이 애니메이션은 transition line을 타고 있는가
+        // tag가 attack인가
+        if (animator.IsInTransition(0) && nextInfo.IsTag(tag))
+        {
+            // 0부터 1까지의 값 중 몇 퍼센트의 값으로 처리 중인가
+            return nextInfo.normalizedTime;
+        } 
+        // 내 tag가 attack인가
+        else if (!animator.IsInTransition(0) && currentInfo.IsTag(tag))
+        {
+            return currentInfo.normalizedTime;
+        } else
+        {
+            return 0f;
+        }
     }
 }

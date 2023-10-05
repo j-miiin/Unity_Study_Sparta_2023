@@ -29,7 +29,7 @@ public class ForceReceiver : MonoBehaviour
         impact = Vector3.SmoothDamp(impact, Vector3.zero, ref dampingVelocity, drag);
     }
 
-    public void Reseet()
+    public void Reset()
     {
         // ¶³¾îÁö´Â Èû ¾ø¾Ö±â
         impact = Vector3.zero;
