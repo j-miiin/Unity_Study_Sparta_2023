@@ -15,7 +15,8 @@ public class Goal : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.name.Equals("Ball"))
+        // Load 해오므로 (Clone)이 붙어서 Ball과 Equals가 아닌 Contains로 검사
+        if(collision.name.Contains("Ball"))
         {
             if(isPlayer1Goal)
             {
