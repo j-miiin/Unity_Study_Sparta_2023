@@ -75,7 +75,7 @@ public class PlayerGroundedState : PlayerBaseState
     }
 
     // Attack에 대한 state 변화
-    // 만약 Walk에서는 공격을 하지만 Run에서는 하기 싫다! 하면 OnAttack을 오버라이드 하면 됨
+    // 만약 Idle이나 Walk에서는 공격을 하지만 Run에서는 공격 하기 싫다! 하면 OnAttack을 오버라이드 하면 됨
     protected virtual void OnAttack()
     {
         stateMachine.ChangeState(stateMachine.ComboAttackState);

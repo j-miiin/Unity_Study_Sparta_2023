@@ -24,7 +24,7 @@ public class PlayerComboAttackState : PlayerAttackState
 
         int comboIndex = stateMachine.ComboIndex;
         attackInfoData = stateMachine.Player.Data.AttackData.GetAttackInfo(comboIndex); // 현재 사용해야 되는 콤보 인덱스 정보
-        stateMachine.Player.Animator.SetInteger("Combo", comboIndex);
+        stateMachine.Player.Animator.SetInteger("Combo", comboIndex);  
     }
 
     public override void Exit()
@@ -41,10 +41,13 @@ public class PlayerComboAttackState : PlayerAttackState
 
     private void TryComboAttack()
     {
+        // 이미 콤보 어택을 했음
         if (alreadyApplyCombo) return;
 
+        // 마지막 공격
         if (attackInfoData.ComboStateIndex == -1) return;
 
+        // 공격이 끝남
         if (!stateMachine.IsAttacking) return;
 
         alreadyApplyCombo = true;
@@ -55,7 +58,7 @@ public class PlayerComboAttackState : PlayerAttackState
         if (alreadyAppliedForce) return;
         alreadyAppliedForce = true;
 
-        // 내가 받고 있힘을 리셋하고 AddForce 진행
+        // 내가 받고 있던 힘을 리셋하고 AddForce 진행
         stateMachine.Player.ForceReceiver.Reset();
 
         // 정면에서 밀려남
@@ -79,10 +82,11 @@ public class PlayerComboAttackState : PlayerAttackState
                 // 힘 적용
                 TryApplyForce();
             }
+            // 콤보 체크 시간보다 커지면 
             if (normalizedTime >= attackInfoData.ComboTransitionTime)
             {
                 // 콤보 적용 
-                TryApplyForce();
+                TryComboAttack();
             }
         }
         // 애니메이션의 모든 플레이가 완료됐을 때
@@ -90,6 +94,7 @@ public class PlayerComboAttackState : PlayerAttackState
         {
             if (alreadyApplyCombo)
             {
+                // 콤보 적용을 했다면 다음 콤보 인덱스를 찾아줌
                 stateMachine.ComboIndex = attackInfoData.ComboStateIndex;
                 stateMachine.ChangeState(stateMachine.ComboAttackState);
             } else

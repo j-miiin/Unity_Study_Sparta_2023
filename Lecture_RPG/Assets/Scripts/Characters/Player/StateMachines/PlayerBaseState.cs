@@ -4,9 +4,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
-// 특정 상태에서만 사용할 키를 구현할 때는
-// 각 상황의 큰 상태들(Ground, Air, Attack)에서 override 해서 구현하는 방법도 잇음
-
 // 모든 State는 StateMachine과 역참조를 진행
 public class PlayerBaseState : IState
 {
@@ -44,6 +41,10 @@ public class PlayerBaseState : IState
     {
         Move();
     }
+
+    // 지금은 공용이지만(공격 버튼을 공격 중에도 쓰고 점프 중에도 씀)
+    // 특정 상태에서만 사용할 키를 구현할 때는
+    // 각 상황의 큰 상태들(Ground, Air, Attack)에서 override 해서 구현하는 방법도 잇음
 
     // InputAction에 걸어줄 Callback
     protected virtual void AddInputActionsCallbacks()
@@ -140,7 +141,7 @@ public class PlayerBaseState : IState
             * Time.deltaTime);
     }
 
-    // direction 값을 받지 않고 ForceReceiver가 가진 방향으로 이동
+    // direction 값을 받지 않고 ForceReceiver가 가진 Movement 값으로 이동
     protected void ForceMove()
     {
         stateMachine.Player.Controller.Move(stateMachine.Player.ForceReceiver.Movement * Time.deltaTime);
@@ -178,7 +179,7 @@ public class PlayerBaseState : IState
     protected float GetNormalizedTime(Animator animator, string tag)
     {
         AnimatorStateInfo currentInfo = animator.GetCurrentAnimatorStateInfo(0);
-        AnimatorStateInfo nextInfo = animator.GetCurrentAnimatorStateInfo(0);
+        AnimatorStateInfo nextInfo = animator.GetCurrentAnimatorStateInfo(0);   // 다음 애니메이션에 대한 정보
 
         // 현재 이 애니메이션은 transition line을 타고 있는가
         // tag가 attack인가
@@ -191,7 +192,9 @@ public class PlayerBaseState : IState
         else if (!animator.IsInTransition(0) && currentInfo.IsTag(tag))
         {
             return currentInfo.normalizedTime;
-        } else
+        }
+        // Attack이 아닐 때
+        else
         {
             return 0f;
         }
