@@ -10,7 +10,7 @@ public class EnemyChasingState : EnemyBaseState
 
     public override void Enter()
     {
-        stateMachine.MovementSpeedModifier = 1f;
+        stateMachine.MovementSpeedModifier = 1;
 
         base.Enter();
 
@@ -28,6 +28,8 @@ public class EnemyChasingState : EnemyBaseState
 
     public override void Update()
     {
+        base.Update();
+
         if (!IsInChasingRange())
         {
             stateMachine.ChangeState(stateMachine.IdleState);
@@ -41,7 +43,7 @@ public class EnemyChasingState : EnemyBaseState
 
     private bool IsInAttackingRange()
     {
-        //if (stateMachine.Target.IsDead) { return false; }
+        if (stateMachine.Target.IsDead) { return false; }
 
         float playerDistanceSqr = (stateMachine.Target.transform.position - stateMachine.Enemy.transform.position).sqrMagnitude;
 

@@ -122,7 +122,7 @@ public class EnemyBaseState : IState
 
     protected bool IsInChasingRange()
     {
-        //if (stateMachine.Target.IsDead) { return false; }
+        if (stateMachine.Target.IsDead) { return false; }
 
         // sqrMagnitude는 제곱인 상태의 벡터 크기
         // 제곱을 푸는 연산은 무겁기 때문에 풀지 않고 곱하기를 한 번 더 해서 비교하는 것

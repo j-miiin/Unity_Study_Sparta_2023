@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyAttackState : EnemyBaseState
 {
     private bool alreadyAppliedForce;
-
+    private bool alreadyAppliedDealing;
 
     public EnemyAttackState(EnemyStateMachine enemyStateMachine) : base(enemyStateMachine)
     {
@@ -13,7 +13,9 @@ public class EnemyAttackState : EnemyBaseState
 
     public override void Enter()
     {
-        stateMachine.MovementSpeedModifier = 0f;
+        alreadyAppliedForce = false;
+        alreadyAppliedDealing = false;
+        stateMachine.MovementSpeedModifier = 0;
 
         base.Enter();
 
@@ -43,6 +45,20 @@ public class EnemyAttackState : EnemyBaseState
             {
                 // 힘 적용
                 TryApplyForce();
+            }
+
+            // 딜을 아직 넣지 않은 상태
+            if (!alreadyAppliedDealing && normalizedTime >= stateMachine.Enemy.Data.Dealing_Start_TransitionTime)
+            {
+                stateMachine.Enemy.Weapon.SetAttack(stateMachine.Enemy.Data.Damage, stateMachine.Enemy.Data.Force);
+                stateMachine.Enemy.Weapon.gameObject.SetActive(true);
+                alreadyAppliedDealing = true;
+            }
+
+            // 딜을 넣은 상태
+            if (alreadyAppliedDealing && normalizedTime >= stateMachine.Enemy.Data.Dealing_End_TransitionTime)
+            {
+                stateMachine.Enemy.Weapon.gameObject.SetActive(false);
             }
         }
         else

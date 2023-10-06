@@ -10,7 +10,7 @@ public class EnemyIdleState : EnemyBaseState
 
     public override void Enter()
     {
-        stateMachine.MovementSpeedModifier = 0f;
+        stateMachine.MovementSpeedModifier = 0;
 
         base.Enter();
 
